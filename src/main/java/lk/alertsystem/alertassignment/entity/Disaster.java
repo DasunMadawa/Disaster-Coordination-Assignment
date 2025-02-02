@@ -1,9 +1,6 @@
 package lk.alertsystem.alertassignment.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lk.alertsystem.alertassignment.enums.DisasterType;
 import lk.alertsystem.alertassignment.enums.UrgencyLevel;
 import lombok.AllArgsConstructor;
@@ -34,5 +31,8 @@ public class Disaster {
 
     @Enumerated(EnumType.STRING)
     private UrgencyLevel urgencyLevel;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Citizen citizen;
 
 }

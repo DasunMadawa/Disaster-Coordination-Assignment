@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,5 +32,8 @@ public class Citizen {
 
     @Enumerated(EnumType.STRING)
     private Province province;
+
+    @OneToMany(mappedBy = "citizen" , cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    private List<Disaster> disasterList;
 
 }

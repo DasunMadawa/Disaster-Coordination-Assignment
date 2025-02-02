@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +26,8 @@ public class CitizenDTO implements Serializable {
     private String gramaNiladhariDivision;
     private District district;
     private Province province;
+
+    private List<DisasterDTO> disasterDTOList;
 
 
 }

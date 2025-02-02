@@ -28,4 +28,6 @@ public class DisasterDTO {
     private int numOfAffected;
     private UrgencyLevel urgencyLevel;
 
+    private CitizenDTO citizenDTO;
+
 }

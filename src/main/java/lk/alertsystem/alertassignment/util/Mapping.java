@@ -40,11 +40,19 @@ public class Mapping {
     }
 
     public DisasterDTO toDisasterDTO(Disaster disaster) {
-        return modelMapper.map(disaster, DisasterDTO.class);
+        DisasterDTO disasterDTO = modelMapper.map(disaster, DisasterDTO.class);
+        disasterDTO.setCitizenDTO(modelMapper.map(disaster.getCitizen() , CitizenDTO.class));
+        return disasterDTO;
     }
 
     public List<DisasterDTO> toDisasterDTOList(List<Disaster> disasterList) {
-        return modelMapper.map(disasterList, new TypeToken<ArrayList<DisasterDTO>>() {}.getType());
+        List<DisasterDTO> tempList = new ArrayList<>();
+
+        disasterList.forEach(disaster -> {
+            tempList.add(toDisasterDTO(disaster));
+        });
+
+        return tempList;
     }
 
 

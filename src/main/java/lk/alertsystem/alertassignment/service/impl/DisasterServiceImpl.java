@@ -23,7 +23,6 @@ public class DisasterServiceImpl implements DisasterService {
     public boolean saveDisaster(DisasterDTO disasterDTO) {
         try {
             disasterRepo.save(mapping.toDisaster(disasterDTO));
-            log.info("Disaster saved");
             return true;
         } catch (Exception e) {
             log.error("Disaster save failed");
